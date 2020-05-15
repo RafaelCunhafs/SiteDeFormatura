@@ -51,9 +51,9 @@ $mediaType = 'IMAGE';
 if($media=='videos'){
    $mediaType = 'VIDEO';
 }
-
+$params = JComponentHelper::getParams('com_media');
 ?>
-<div astroidmediagallery ng-model="<?php echo $fieldname; ?>" ng-init="selectMedia = false">
+<div astroidmediagallery  ng-model="<?php echo $fieldname; ?>" ng-init="selectMedia = false;Imgpath='<?php echo $params->get('image_path', 'images'); ?>'" >
    <input type="hidden" class="image-value" name="<?php echo $name; ?>" ng-value="<?php echo $fieldname; ?>" />
    <input type="hidden" id="dropzone_folder_<?php echo $id; ?>" ng-value='gallery.current_folder' />
    
@@ -75,7 +75,7 @@ if($media=='videos'){
          <button ng-show="<?php echo $fieldname; ?> != ''" ng-click="selectMedia = true; getLibrary('','astroid-media-tab-library-<?php echo $id; ?>');" type="button" class="btn btn-white float-left btn-round astroid-fade-fast-animation"><?php echo JText::_('TPL_ASTROID_CHANGE_'.$mediaType); ?></button>
       </li>
       <li ng-show="<?php echo $fieldname; ?> != ''" class="list-inline-item astroid-fade-fast-animation">
-         <button ng-click="clearImage('<?php echo $id; ?>');" type="button" class="btn btn-link float-left text-danger"><?php echo JText::_('JCLEAR'); ?></button>
+         <button ng-click="clearImage('<?php echo $id; ?>');" type="button" class="btn btn-link float-left text-danger"><?php echo JText::_('ASTROID_CLEAR'); ?></button>
       </li>
    </ul>
    

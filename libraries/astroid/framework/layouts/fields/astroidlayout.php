@@ -107,10 +107,11 @@
             <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_NEW_SECTION'); ?>" class="ezlb-action" ng-click="addSection(sectionIndex)"><i class="fa fa-plus"></i> <span class="hidein-live-preview"><?php echo JText::_('TPL_ASTROID_NEW_SECTION'); ?></span></span>
          </span>
          <div class="col-12 ezlb-content" ng-sortable="{draggable:'.ezlb-row', animation: 100, handle: '.ezlb-row-handle'}">
-            <div ng-repeat="row in section.rows track by $index" class="ezlb-row row ezlb-row-{{ sectionIndex}}-{{ rowIndex}}" ng-init="rowIndex = $index">
+            <div ng-repeat="row in section.rows track by $index" class="ezlb-row row ezlb-row-{{ sectionIndex}}-{{ rowIndex}}" ng-init="rowIndex = $index; row.type = 'row'">
                <span class="ezlb-toolbar">
                   <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_EDIT_GRID_ROW'); ?>" class="ezlb-action" ng-click="editRow(rowIndex, sectionIndex)"><i class="fa fa-columns"></i></span>
                   <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_DUPLICATE_ROW'); ?>" ng-click="duplicateRow(rowIndex, sectionIndex)" class="ezlb-action"><i class="fa fa-copy"></i></span>
+                  <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_EDIT_ROW'); ?>" ng-click="editElement(row)" class="ezlb-action"><i class="fa fa-pencil-alt"></i></span>
                   <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_REMOVE_ROW'); ?>" ng-show="section.rows.length > 1" ng-click="removeRow(rowIndex, sectionIndex)" class="ezlb-action text-danger"><i class="fa fa-trash"></i></span>
                </span>
                <span class="ezlb-toolbar toolbar-left">
@@ -118,7 +119,7 @@
                </span>
                <div class="col-12">
                   <div class="row" ng-sortable="{draggable: '.ezlb-col',animation: 100}">
-                     <div ng-repeat="column in row.cols track by $index" class="ezlb-col col-{{ column.size}} ezlb-col-{{ sectionIndex}}-{{ rowIndex}}-{{ columnIndex}} {{ column.elements.length == 0 ? 'ezlb-col-empty' : '' }}" ng-init="columnIndex = $index; column.type='column'">
+                     <div data-label="col-lg-{{ column.size}}" ng-repeat="column in row.cols track by $index" class="ezlb-col col-{{ column.size}} ezlb-col-{{ sectionIndex}}-{{ rowIndex}}-{{ columnIndex}} {{ column.elements.length == 0 ? 'ezlb-col-empty' : '' }}" ng-init="columnIndex = $index; column.type='column'">
                         <div ng-if="column.elements.length != 0" class="ezlb-col-overlay"></div>
                         <div ng-if="column.elements.length == 0" ng-click="addingElement(columnIndex, rowIndex, sectionIndex, null)" class="ezlb-add-element">
                         </div>
@@ -146,7 +147,6 @@
             </div>
          </div>
          <div class="clearfix"></div>
-         <hr class="w-100"/>
       </div>
    </div>
    <br/>
@@ -175,6 +175,11 @@ foreach ($astroidElements as $astroidElement) {
 <?php $sectionElement = new AstroidElement('section'); ?>
 <script type="text/ng-template" id="element-form-template-section">
    <?php echo $sectionElement->renderForm(); ?>
+</script>
+
+<?php $rowElement = new AstroidElement('row'); ?>
+<script type="text/ng-template" id="element-form-template-row">
+   <?php echo $rowElement->renderForm(); ?>
 </script>
 
 <?php $columnElement = new AstroidElement('column'); ?>

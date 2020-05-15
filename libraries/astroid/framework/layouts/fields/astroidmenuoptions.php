@@ -90,7 +90,7 @@ foreach ($items as $i => $item) {
             <div class="ezlb-pop-header">
                <span class="title"><?php echo JText::_('TPL_ASTROID_MENU_SELECT_AN_ITEM'); ?></span>
                <span class="dismiss" ng-click="chooseModule.open = 0; chooseModule.row = null; chooseModule.column = null;"><i class="fa fa-times"></i></span>
-               <input style="float: right;line-height: 60px;" type="text" class="form-control astroid-module-search" ng-model="searchModule" placeholder="Search Module" />
+               <input style="float: right;line-height: 60px;" type="text" class="form-control astroid-module-search" ng-model="searchModule" placeholder="<?php echo JText::_('TPL_ASTROID_MENU_SEARCH_MODULE'); ?>" />
             </div>
             <div class="ezlb-grid-items">
                <div class="row m-0">
@@ -172,8 +172,8 @@ foreach ($items as $i => $item) {
                      <input type="text" autocomplete="off" name="<?php echo $name; ?>[width]" placeholder="280px" value="<?php echo $width; ?>" id="<?php echo $id; ?>_width" class="form-control" />
                   </div>
                   <div ng-show="<?php echo $id; ?>_megamenu" class="col-4">
-                     <label class="astroid-label" id="<?php echo $id; ?>_width-lbl" for="<?php echo $id; ?>_width"><?php echo JText::_('TPL_ASTROID_MENU_OPTIONS_MEGAMENU_WIDTH'); ?></label>
-                     <input type="text" autocomplete="off" name="<?php echo $name; ?>[megamenu_width]" placeholder="980px" value="<?php echo $megamenu_width; ?>" id="<?php echo $id; ?>_width" class="form-control" />
+                     <label class="astroid-label" id="<?php echo $id; ?>_megamenu_width-lbl" for="<?php echo $id; ?>_megamenu_width"><?php echo JText::_('TPL_ASTROID_MENU_OPTIONS_MEGAMENU_WIDTH'); ?></label>
+                     <input type="text" autocomplete="off" name="<?php echo $name; ?>[megamenu_width]" placeholder="980px" value="<?php echo $megamenu_width; ?>" id="<?php echo $id; ?>_megamenu_width" class="form-control" />
                   </div>
                   <div ng-hide="<?php echo $id; ?>_megamenu" class="col-8">
                      <label class="astroid-label" id="<?php echo $id; ?>_alignment-lbl" for="<?php echo $id; ?>_alignment"><?php echo JText::_('TPL_ASTROID_MENU_OPTIONS_DROPDOWN_ALIGNMENT'); ?></label>
@@ -222,11 +222,11 @@ foreach ($items as $i => $item) {
                      <div class="col-12 ezlb-content" ng-sortable="{draggable:'.ezlb-row', animation: 100, handle: '.ezlb-row-handle'}">
                         <div ng-repeat="row in rows track by $index" class="ezlb-row row ezlb-row-{{ rowIndex}}" ng-init="rowIndex = $index">
                            <span class="ezlb-toolbar">
-                              <span class="ezlb-action" ng-click="chooseRowColumns.open = 1; chooseRowColumns.row = rowIndex;"><i class="fa fa-columns"></i></span>
-                              <span ng-click="removeRow(rowIndex)" class="ezlb-action text-danger"><i class="fa fa-trash"></i></span>
+                              <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_EDIT_GRID_ROW'); ?>" class="ezlb-action" ng-click="chooseRowColumns.open = 1; chooseRowColumns.row = rowIndex;"><i class="fa fa-columns"></i></span>
+                              <span  data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_REMOVE_ROW'); ?>" ng-click="removeRow(rowIndex)" class="ezlb-action text-danger"><i class="fa fa-trash"></i></span>
                            </span>
                            <span class="ezlb-toolbar toolbar-left">
-                              <span class="ezlb-action ezlb-row-handle" ng-show="rows.length > 1"><i class="fa fa-arrows-alt"></i></span>
+                              <span class="ezlb-action ezlb-row-handle set-align"  data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_MOVE_ROW'); ?>" ng-show="rows.length > 1"><i class="fa fa-arrows-alt"></i></span>
                            </span>
                            <div class="col-12">
                               <div class="row" ng-sortable="{draggable: '.ezlb-col',animation: 100}">
@@ -239,12 +239,12 @@ foreach ($items as $i => $item) {
                                        <div ng-repeat="element in column.elements track by $index" ng-init="elementIndex = $index" class="ezlb-element">
 
                                           <span class="ezlb-toolbar">
-                                             <span ng-show="column.elements.length > 1" class="ezlb-action ezlb-element-handle"><i class="fa fa-arrows-alt"></i></span>
-                                             <span class="ezlb-action text-danger" ng-click="removeElement(elementIndex, columnIndex, rowIndex);"><i class="fa fa-trash"></i></span>
+                                             <span ng-show="column.elements.length > 1" class="ezlb-action ezlb-element-handle" data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_MOVE_ELEMENT'); ?>"><i class="fa fa-arrows-alt"></i></span>
+                                             <span  data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_REMOVE_ELEMENT'); ?>" class="ezlb-action text-danger" ng-click="removeElement(elementIndex, columnIndex, rowIndex);"><i class="fa fa-trash"></i></span>
                                           </span>
 
                                           <span class="element-title">{{ element.title}}</span>
-                                          <span ng-show="elementIndex == column.elements.length - 1" ng-click="chooseModule.open = 1;chooseModule.row = rowIndex; chooseModule.column = columnIndex;" class="ezlb-add-element"><i class="fa fa-plus"></i></span>
+                                          <span data-astroid-tooltip="<?php echo JText::_('TPL_ASTROID_ADD_ELEMENT_COLUMN'); ?>"  ng-show="elementIndex == column.elements.length - 1" ng-click="chooseModule.open = 1;chooseModule.row = rowIndex; chooseModule.column = columnIndex;" class="ezlb-add-element"><i class="fa fa-plus"></i></span>
                                        </div>
                                     </div>
                                  </div> 
@@ -259,7 +259,7 @@ foreach ($items as $i => $item) {
                <br/>
                <br/>
                <div class="text-center">
-                  <span ng-click="addRow()" class="d-inline ezlb-btn"><i class="fa fa-plus"></i> <?php echo JText::_('TPL_ASTROID_MENU_OPTIONS_ADD_ROW'); ?></span>
+                  <span  ng-click="addRow()" class="d-inline ezlb-btn"><i class="fa fa-plus"></i> <?php echo JText::_('TPL_ASTROID_MENU_OPTIONS_ADD_ROW'); ?></span>
                </div>
                <br/>
                <br/>
@@ -349,10 +349,40 @@ foreach ($scripts as $script) {
             },
             fullTextSearch: true,
             filterRemoteData: true,
-            saveRemoteData: false
+            saveRemoteData: true
          });
       });
       $("#<?php echo $id; ?>_badge_color,#<?php echo $id; ?>_badge_bgcolor").spectrum(spectrumConfig);
+      
+      
+      var initDropdownWidth = function(){
+         var _alignment = $('#<?php echo $id; ?>_alignment').val();
+         if(_alignment=='full' || _alignment == 'edge'){
+            $('#<?php echo $id; ?>_width').prop('disabled', true);
+         }else{
+            $('#<?php echo $id; ?>_width').prop('disabled', false);
+         }
+      }
+      
+      $('#<?php echo $id; ?>_alignment').on('change', function(){
+         initDropdownWidth();
+      });
+      initDropdownWidth();
+      
+      var initMegamenuWidth = function(){
+         var _alignment = $('#<?php echo $id; ?>_megamenu_direction').val();
+         if(_alignment=='full' || _alignment == 'edge'){
+            $('#<?php echo $id; ?>_megamenu_width').prop('disabled', true);
+         }else{
+            $('#<?php echo $id; ?>_megamenu_width').prop('disabled', false);
+         }
+      }
+      
+      $('#<?php echo $id; ?>_megamenu_direction').on('change', function(){
+         initMegamenuWidth();
+      });
+      initMegamenuWidth();
+      
    })(jQuery);
 </script>
 <script>

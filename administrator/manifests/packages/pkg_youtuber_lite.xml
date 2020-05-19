@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.1" method="upgrade">
+	<name>Package YouTubeR lite</name>
+	<packagename>youtuber_lite</packagename>
+	<author>Maxio</author>
+	<creationDate>June 2016</creationDate>
+	<copyright>Copyright (C) 2016 Maxio. All rights reserved.</copyright>
+	<authorEmail>lab.maxio@gmail.com</authorEmail>
+	<authorUrl>youtuber.maxiolab.com</authorUrl>
+	<version>1.31</version>
+	<packager></packager>
+	<packagerurl>http://youtuber.maxiolab.com/?platform=joomla</packagerurl>
+	<description><![CDATA[<p>YouTubeR - <strong>unique</strong> Joomla plugin, that allows you to upload videos on YouTube from your website and to easily embed YouTube videos to your website.</p><p>Here you can see how to quick start with the plugin: <a href='https://youtu.be/u5UvoM_Bd70' target='_blank'>https://youtu.be/u5UvoM_Bd70</a></p>]]></description>
+	<files folder="packages">
+		<file type="plugin" group="editors-xtd" id="youtuber_btn">plg_youtuber_btn.zip</file>
+		<file type="plugin" group="system" id="youtuber_lite">plg_youtuber_lite.zip</file>
+	</files>
+</extension>

@@ -1,0 +1,32 @@
+#youtube_slider {
+	position: relative;
+}
+
+#ybox1 {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:5px solid #cccccc;
+	background-color: #fff;
+	position: fixed;
+}
+
+#ybox2 {
+	overflow: hidden;
+	text-align: left;
+}
+
+#ybox1 img {
+	position: absolute; 
+	top: 0px; 
+	cursor: pointer;
+	border: 0;
+	z-index: 10000;
+}
+
+#ybox1 iframe {
+	border:0px;
+	overflow: hidden; 
+	position: absolute;
+	width:100%;
+}

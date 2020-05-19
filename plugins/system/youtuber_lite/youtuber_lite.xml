@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+	<name>System - YouTubeR lite</name>
+	<author>Maxio</author>
+	<creationDate>June 2016</creationDate>
+	<copyright>Copyright (C) 2016 Maxio. All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>lab.maxio@gmail.com</authorEmail>
+	<authorUrl>youtuber.maxiolab.com</authorUrl>
+	<version>1.31</version>
+	<description>PLG_SYSTEM_YOUTUBER_LITE_DESCR</description>
+	<files>
+		<filename plugin="youtuber_lite">youtuber_lite.php</filename>
+		<filename>data.php</filename>
+		<folder>views</folder>
+		<filename>index.html</filename>
+	</files>
+	<media folder="media" destination="plg_system_youtuber_lite">
+		<folder>assets</folder>
+		<folder>themes</folder>
+	</media>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_system_youtuber_lite.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="googleOAuthKey" type="text" default="" description="Google OAuth client ID descr" label="Google OAuth client ID" />
+				<field name="googleBrowserKey" type="text" default="" description="Google Browser key descr" label="Google Browser key" />
+ 
+ 				<field type="spacer" label="Shortcode default attributes" />
+ 				
+				<field name="theme" type="text" default="default" description="Theme descr" label="Theme" />
+				<field name="mode" type="list" default="lightbox" label="Mode">
+					<option value="lightbox">Lightbox</option>
+					<option value="embed">Embed</option>
+					<option value="link">Link</option>
+				</field>
+				<field name="max_words" type="number" default="20" label="Description words limit" description="Description words limit descr" />
+				<field name="date_format" type="text" default="d.m.Y" label="Date format" description="Date format descr" />
+				
+ 				<field type="spacer" label="Advanced configuration" />
+ 				
+				<field name="caching" type="list" label="Caching" default="1" class="chzn-color-state">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="cache_lifetime" type="number" default="3600" label="Cache lifetime" description="Cache lifetime in seconds" />
+			</fieldset>
+ 
+		</fields>
+	</config>
+</extension>

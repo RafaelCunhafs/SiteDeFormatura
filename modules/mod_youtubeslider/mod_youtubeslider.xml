@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+	<name>Youtube Widget Slider</name>
+	<author>Alonzo Weatherby</author>
+	<creationDate>June 2013</creationDate>
+	<copyright>Copyright (C)2013 forkliftcertification.us</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>widgets@forkliftcertification.us</authorEmail>
+	<authorUrl>www.forkliftcertification.us</authorUrl>
+	<version>1.0</version>
+	<description>Thanks for installing Youtube Widget Slider</description>
+	<files>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+		<filename module="mod_youtubeslider">mod_youtubeslider.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_youtubeslider.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_youtubeslider.ini</language>
+		<language tag="en-GB">en-GB.mod_youtubeslider.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="yt_username"
+					type="text"
+					default="disney"
+					label="MOD_YOUTUBE_USERNAME"
+					description="MOD_YOUTUBE_USERNAME_DESC" />
+				<field
+					name="video_url"
+					type="text"
+					default="qUGnu0gXtn4"
+					label="MOD_YOUTUBE_VIDEO_URL"
+					description="MOD_YOUTUBE_VIDEO_URL_DESC" />
+				<field 
+					name="margintop"
+					type="text"
+					default="250"
+					label="MOD_YOUTUBE_SLIDER_MARGIN" 
+					description="MOD_YOUTUBE_SLIDER_MARGIN_DESC" />
+				<field 
+					name="ywidth"
+					type="text"
+					default="290"
+					label="MOD_YOUTUBE_SLIDER_WIDTH" 
+					description="MOD_YOUTUBE_SLIDER_WIDTH_DESC" />
+				<field 
+					name="yheight"
+					type="text"
+					default="270"
+					label="MOD_YOUTUBE_SLIDER_HEIGHT"
+					description="MOD_YOUTUBE_SLIDER_HEIGHT_DESC" />
+				<field
+					name="position"
+					type="radio"
+					class="btn-group"
+					default="left"
+					label="Position"
+					description="Position">
+					<option value="left">Left</option>
+					<option value="right">Right</option>
+				</field>	
+                 <field type="spacer" name="myspacer" label="Note: If you are using Joomla 2.5 or your site not loading jQuery yet - You might like to put that option as Yes to load jQuery" />	
+				<field
+					name="loadjquery"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="Load Jquery"
+					description="Load Jquery">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>		
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					default=""
+					label="MOD_YOUTUBE_SLIDER_MODULE_CLASS"
+					description="MOD_YOUTUBE_SLIDER_MODULE_CLASS_DESC" />
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

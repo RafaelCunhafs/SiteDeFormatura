@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="editors-xtd" method="upgrade">
+	<name>Button - YouTubeR</name>
+	<author>Maxio</author>
+	<creationDate>June 2016</creationDate>
+	<copyright>Copyright (C) 2016 Maxio. All rights reserved.</copyright>
+	<authorEmail>lab.maxio@gmail.com</authorEmail>
+	<authorUrl>youtuber.maxiolab.com</authorUrl>
+	<version>1.30</version>
+	<description><![CDATA[<p>This plugin show button under the visual editor block, that allows you to upload videos to your YouTube account from your website (check out the demo website: <a href='http://youtuber.maxiolab.com/?platform=joomla' target='_blank'>http://youtuber.maxiolab.com/</a>)</p><p>Documentation can be foud here: <a href='http://youtuber.maxiolab.com/docs/joomla/' target='_blank'>http://youtuber.maxiolab.com/docs/joomla/</a></p>]]></description>
+	<files>
+		<filename plugin="youtuber_btn">youtuber_btn.php</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>

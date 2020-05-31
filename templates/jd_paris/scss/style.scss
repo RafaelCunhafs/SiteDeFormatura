@@ -10,3 +10,25 @@
 
 // Theme
 @import "paris/style";
+
+
+// Our Custom CSS
+.btn-primary {
+  background-color: #BC9B5D;
+  border-color: #BC9B5D;
+  margin-bottom: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #BC944A;
+    border-color: #BC944A;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    background-color: #BC944A;
+    border-color: #BC9B5D;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(188, 155, 93, .5);
+}

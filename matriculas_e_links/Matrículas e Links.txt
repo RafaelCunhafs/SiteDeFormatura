@@ -1,0 +1,20 @@
+NOME: Júlio César Ferreira de Souza
+MATRÍCULA: 621788
+
+NOME: Lucas Moreira Costa
+MATRÍCULA: 619692
+
+NOME: Piercarlo Alves Silva
+MATRÍCULA: 617474
+
+NOME: Rafael Cunha Ferreira de Souza
+MATRÍCULA: 628012
+
+NOME: Rômulo Guedes Ferreira
+MATRÍCULA: 621763
+
+GitHub: https://github.com/RafaelCunhafs/SiteDeFormatura.git
+
+Google Drive: https://drive.google.com/drive/folders/1URU6V5WNw5KdZQH12Vi49yq-Cz6wph9T?usp=sharing
+
+OBS: O arquivo "docker-compose.yml" está dentro da pasta "ops".
